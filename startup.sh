@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-cd /home/appuser; git clone https://github.com/tmarkunin/infra.git
+cd ~
+
+git clone https://github.com/tmarkunin/infra.git
 cd infra
 bash install_ruby.sh
 bash install_mongo.sh
