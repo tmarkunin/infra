@@ -18,27 +18,6 @@
       state: present
       user_install: no
 
-# Deploy reddit app
-- name: "Reddit App: Deploy application"
-  hosts: reddit_app
-  gather_facts: no
-
-  tasks:
-  - name: Get app source code
-    git:
-      repo: https://github.com/Otus-DevOps-2017-11/reddit.git
-      dest: reddit
-      version: monolith
-
-  - name: Gemgile bundle update
-    bundler:
-      state: present
-      gemfile: /home/appuser/reddit/Gemfile
-
-  - name: Start puma
-    command: puma -d
-    args:
-      chdir: /home/appuser/reddit
 
 
 
