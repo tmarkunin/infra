@@ -55,6 +55,7 @@
   - name: Get app source code
     git:
       repo: https://github.com/Otus-DevOps-2017-11/reddit.git
+      destination: reddit
       version: monolith
 
 
