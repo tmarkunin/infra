@@ -52,12 +52,10 @@
   gather_facts: no
 
   tasks:
-  - name: Remove me after adding real things
-    debug:
-      msg: "В этом сценарии нужно добавить модули для деплоя приложения, после можно удалить вызов модуля debug, который выводит это сообщение"
-  - git: >
-      repo=https://github.com/tmarkunin/infra.git
-      dest=~/infra
+  - name: Get app source code
+    git:
+      repo: https://github.com/tmarkunin/infra.git
+      dest: ~/infra
       version: ansible-1
 
   - name: Install bundle
