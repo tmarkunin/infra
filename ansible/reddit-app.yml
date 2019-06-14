@@ -28,7 +28,7 @@
     debug:
       msg: "В этом сценарии нужно добавить модули для установки mongodb, после можно удалить вызов модуля debug, который выводит это сообщение"
   - name: Add Mongo packages repo
-    apt_key: id=2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5  keyserver=keyserver.ubuntu.com
+    apt_key: id=2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5  keyserver=hkp://keyserver.ubuntu.com:80
   - name: add repo itself
     apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu {{ansible_distribution_release}}/mongodb-org/3.4 multiverse' state=present                                      
   - name: install packages
