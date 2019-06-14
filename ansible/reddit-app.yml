@@ -31,7 +31,7 @@
     sudo: yes
     apt_key: id=2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5  keyserver=hkp://keyserver.ubuntu.com:80
   - name: add repo itself
-    apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu {{ansible_distribution_release}}/mongodb-org/3.4 multiverse' state=present                                      
+    apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse' state=present                                      
   - name: install packages
     apt: pkg=mongodb-org state=present
   - name: Start service mongod, if not started
