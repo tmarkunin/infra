@@ -54,8 +54,8 @@
   tasks:
   - name: Get app source code
     git:
-      repo: https://github.com/tmarkunin/infra.git
-      dest: ~/infra
+      repo: https://github.com/Otus-DevOps-2017-11/reddit.git
+      dest: /home/appuser
       version: ansible-1
 
 
