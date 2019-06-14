@@ -71,6 +71,6 @@
       gemfile: /home/appuser/reddit/Gemfile
 
   -name: Start puma
-   command: cd /home/appuser/reddit/ && puma -d
+   shell: cd /home/appuser/reddit/ && puma -d
 
 
