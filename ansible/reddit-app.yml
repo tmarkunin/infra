@@ -1,6 +1,6 @@
 # Setup and configure ruby things for reddit app
 - name: "Reddit App: Configure app environment"
-  hosts: all
+  hosts: reddit_app
   gather_facts: no
   become: yes
 
@@ -17,40 +17,6 @@
       name: bundler
       state: present
       user_install: no
-
-# Setup and configure mongodb for reddit app
-- name: "Reddit App: Install mongodb"
-  hosts: all
-  gather_facts: no
-
-  tasks:
-  - name: Install mongodb package
-    debug:
-      msg: "В этом сценарии нужно добавить модули для установки mongodb, после можно удалить вызов модуля debug, который выводит это сообщение"
-  
-  - name: Add Mongo packages repo apt key
-    sudo: yes
-    apt_key: id=2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5  keyserver=hkp://keyserver.ubuntu.com:80
-
-  - name: add repo itself
-    sudo: yes
-    apt_repository: repo='deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse' state=present                                      
-
-  - name: Update and upgrade apt packages
-    become: true
-    apt:
-      update_cache: yes
-      cache_valid_time: 86400 #One day
-
-  - name: install packages
-    sudo: yes
-    apt: pkg=mongodb-org state=present
-  - name: Start mongod
-    sudo: yes
-    service: 
-      name: mongod
-      state: started
-      enabled: yes
 
 # Deploy reddit app
 - name: "Reddit App: Deploy application"
@@ -70,7 +36,7 @@
       gemfile: /home/appuser/reddit/Gemfile
 
   - name: Start puma
-    command: puma
+    command: puma -d
     args:
       chdir: /home/appuser/reddit
 
