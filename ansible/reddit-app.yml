@@ -27,6 +27,30 @@
   - name: Install mongodb package
     debug:
       msg: "В этом сценарии нужно добавить модули для установки mongodb, после можно удалить вызов модуля debug, который выводит это сообщение"
+  - name: Add mongo ppa key
+    sudo: yes
+    apt_key: >
+      keyserver=hkp://keyserver.ubuntu.com:80
+      id=7F0CEB10
+      state=present
+  - name: Add mongo sources list
+    sudo: yes
+    lineinfile: >
+      line="deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse"
+      dest=/etc/apt/sources.list.d/mongodb.list
+      state=present
+      create=yes
+  - name: Install mongo
+    sudo: yes
+    apt:
+      name=mongodb-org
+      state=latest
+      update_cache=yes
+  - name: Start service mongod, if not started
+    service:
+      name: mongod
+      state: started
+      enabled: yes
 
 # Deploy reddit app
 - name: "Reddit App: Deploy application"
