@@ -58,7 +58,4 @@
       dest: ~/infra
       version: ansible-1
 
-  - name: Install bundle
-    bundler:
-    state: present
-    gemfile: ~/infra/Gemfile
+
