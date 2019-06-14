@@ -27,14 +27,24 @@
   - name: Install mongodb package
     debug:
       msg: "В этом сценарии нужно добавить модули для установки mongodb, после можно удалить вызов модуля debug, который выводит это сообщение"
+  
   - name: Add Mongo packages repo apt key
     sudo: yes
     apt_key: id=2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5  keyserver=hkp://keyserver.ubuntu.com:80
+
   - name: add repo itself
-    apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse' state=present                                      
+    apt_repository: repo='deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse' state=present                                      
+
+  - name: Update and upgrade apt packages
+    become: true
+    apt:
+      update_cache: yes
+      cache_valid_time: 86400 #One day
+
   - name: install packages
     sudo: yes
     apt: pkg=mongodb-org state=present
+
   - name: Start service mongod, if not started
     service:
       name: mongod
