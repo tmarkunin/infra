@@ -69,10 +69,8 @@
     bundler:
       state: present
       gemfile: /home/appuser/reddit/Gemfile
-
-  -name: Start puma
-   command: puma
-   chdir: /home/appuser/reddit
+  - name: Start puma
+    command: puma
 
 
 
