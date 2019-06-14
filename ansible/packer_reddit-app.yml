@@ -1,6 +1,6 @@
 # Setup and configure ruby things for reddit app
 - name: "Reddit App: Configure app environment"
-  hosts: reddit_app
+  hosts: all
   gather_facts: no
   become: yes
 
