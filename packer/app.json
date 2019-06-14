@@ -2,7 +2,7 @@
   "builders": [
     {    "type": "googlecompute",
          "project_id": "infra-243408",
-         "image_name": "reddit-app-{{timestamp}}",
+         "image_name": "reddit-app",
          "source_image": "ubuntu-1604-xenial-v20190605",
          "zone": "us-central1-a",
          "ssh_username": "appuser",
