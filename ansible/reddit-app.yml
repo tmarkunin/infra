@@ -33,6 +33,7 @@
   - name: add repo itself
     apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse' state=present                                      
   - name: install packages
+    sudo: yes
     apt: pkg=mongodb-org state=present
   - name: Start service mongod, if not started
     service:
