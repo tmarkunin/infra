@@ -51,7 +51,6 @@
     service:
     name: mongod
     state: started
-    enabled: yes
 
 # Deploy reddit app
 - name: "Reddit App: Deploy application"
