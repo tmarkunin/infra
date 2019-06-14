@@ -9,11 +9,10 @@
          "machine_type": "f1-micro" 
     } 
               ],
-  "provisioners":[  
-      {  
-         "type":"shell",
-         "script":"scripts/install_ruby.sh",
-         "execute_command":"sudo {{.Path}}"
-      }
-   ]
+    "provisioners":[  
+                {
+                   "type": "ansible",
+                   "playbook_file": "../ansible/packer_reddit-app.yml"
+                 }
+                ]
  }
