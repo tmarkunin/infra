@@ -46,6 +46,13 @@
     sudo: yes
     apt: pkg=mongodb-org state=present
 
+  - name: Start mongod service
+    sudo: yes
+    service:
+    name: mongod
+    state: started
+    enabled: yes
+
 # Deploy reddit app
 - name: "Reddit App: Deploy application"
   hosts: reddit_app
@@ -62,5 +69,8 @@
     bundler:
       state: present
       gemfile: /home/appuser/reddit/Gemfile
+
+  -name: Start puma
+   command: cd /home/appuser/reddit/ && puma -d
 
 
