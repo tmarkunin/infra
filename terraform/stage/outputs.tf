@@ -5,3 +5,6 @@ output "app_internal_ip" {
   value = "${module.app.app_internal_ip}" 
 }
 
+output "db_internal_ip" {
+  value = "${module.db.db_internal_ip}" 
+}
