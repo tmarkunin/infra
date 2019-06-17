@@ -30,7 +30,7 @@
 
     - name: Add config for DB connection      
       template:        
-        src: templates/db_config.j2        
+        src: templates/db_conﬁg.j2        
         dest: /home/appuser/db_config      
       tags: app-tag 
 
