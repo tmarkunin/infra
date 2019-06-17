@@ -3,7 +3,7 @@
   hosts: all
   vars:
     mongo_bind_ip: 0.0.0.0
-     db_host: 10.128.0.46 
+    db_host: 10.128.0.46 
   tasks:
     - name: Change mongo config file
       become: true
