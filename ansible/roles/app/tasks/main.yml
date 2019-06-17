@@ -1,2 +1,16 @@
 ---
-# tasks file for app
+- name: Add unit file for Puma       
+  copy:        
+    src: files/puma.service  
+    dest: /etc/systemd/system/puma.service        
+  notify: reload puma
+      
+- name: enable puma   
+  systemd: name=puma enabled=yes
+
+- name: Add config for DB connection      
+  template:        
+    src: templates/db_conﬁg.j2        
+    dest: /home/appuser/db_config  
+    owner: appuser
+    group: appuser    
