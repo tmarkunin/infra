@@ -4,6 +4,7 @@
   vars:
     mongo_bind_ip: 0.0.0.0
     db_host: 10.128.0.46 
+ 
   tasks:
     - name: Change mongo config file
       become: true
@@ -29,8 +30,8 @@
 
     - name: Add config for DB connection      
       template:        
-      src: templates/db_config.j2        
-      dest: /home/appuser/db_config      
+        src: templates/db_config.j2        
+        dest: /home/appuser/db_config      
       tags: app-tag 
 
   handlers:
